@@ -4,18 +4,20 @@ services:
   db:
     image: postgres
     ports:
-      - "5432:5432"
+      - "${DOCKER_SERVICE_PORT:-5432}:5432"
     environment:
-      POSTGRES_USER: test
-      POSTGRES_PASSWORD: testpass
-      POSTGRES_DB: heyjobs
+      POSTGRES_USER: ${DB_USER:test}
+      POSTGRES_PASSWORD: ${DB_PWD:testpass}
+      POSTGRES_DB: ${DB_NAME:heyjobs}
+    env_file:
+      - db.env
 
   scraper:
     build: .
     depends_on:
       - db
 
-# Waits for the databse to be accesible
+  # Waits for the database to be accessible
   start_dependencies:
     image: dadarek/wait-for-dependencies
     depends_on:
