@@ -3,7 +3,10 @@
 This is a small app that scraps job ads information from Heyjobs [jobs](https://www.heyjobs.co/en-de/jobs) page and load the data into database.
 
 ## How to run:
- - run the following commads:
+ - First, build docker container:
+    > `docker-compose build --no-cache`
+    
+ - Then, run the following commads:
     >`docker-compose run --rm start_dependencies`
     
     > `docker-compose up scraper`
@@ -12,3 +15,7 @@ This is a small app that scraps job ads information from Heyjobs [jobs](https://
     - id
     - uuid
     - title
+    
+## Testing
+ - Run the following cmd for tests:
+    > `docker-compose run test` 
