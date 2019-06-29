@@ -6,9 +6,9 @@ services:
     ports:
       - "${DOCKER_SERVICE_PORT:-5432}:5432"
     environment:
-      POSTGRES_USER: ${DB_USER:test}
-      POSTGRES_PASSWORD: ${DB_PWD:testpass}
-      POSTGRES_DB: ${DB_NAME:heyjobs}
+      POSTGRES_USER: ${DB_USER:-test}
+      POSTGRES_PASSWORD: ${DB_PWD:-testpass}
+      POSTGRES_DB: ${DB_NAME:-heyjobs}
     env_file:
       - db.env
 
@@ -23,3 +23,7 @@ services:
     depends_on:
       - db
     command: db:5432
+
+  test:
+    build: .
+    command: py.test -v
