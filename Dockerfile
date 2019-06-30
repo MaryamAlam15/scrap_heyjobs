@@ -9,4 +9,4 @@ RUN pip install -r requirements.txt
 
 EXPOSE 5432
 
-CMD [ "python", "run.py" ]
+CMD [ "python", "run.py"]
