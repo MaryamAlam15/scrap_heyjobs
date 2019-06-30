@@ -12,7 +12,7 @@ This is a small app that scraps job ads information from Heyjobs [jobs](https://
     
     > `docker-compose up scraper`
     
- - After running these command, there should be a table `job_ad` in your postgres docker container with following fields:
+ - After running these command, there should be a table `job_ad_info` in your postgres docker container with following fields:
     - id
     - uuid
     - title
